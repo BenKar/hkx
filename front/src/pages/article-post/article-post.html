@@ -1,34 +1,45 @@
 <ion-header>
     <ion-navbar >
-        <ion-title class="header">Snoozie - Apprenez des choses passionnantes en moins de 5 minutes top chrono</ion-title>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title class="header">Créer un article</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content class="myview" no-bounce>
 
-
     <form (ngSubmit)="submitForm()">
+
       <ion-item>
-        <ion-label fixed>Titre de ton article</ion-label>
-        <ion-input [(ngModel)]="article.Title" name="Title" type="text" value=""></ion-input>
+        <ion-label class="article-post-label">Titre de ton article</ion-label>
+        <ion-input [(ngModel)]="article.title" name="title" type="text" value="" placeholder="5 min pour comprendre"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label class="article-post-label">Catégorie</ion-label>
+        <ion-select [(ngModel)]="article.tag" name="tag">
+            <ion-option value="Cinéma">Cinéma</ion-option>
+            <ion-option value="Médecine">Médecine</ion-option>
+            <ion-option value="Sport">Sport</ion-option>
+            <ion-option value="Musique">Musique</ion-option>
+            <ion-option value="Actualité">Actualité</ion-option>
+            <ion-option value="Food">Food</ion-option>
+            <ion-option value="Technologie">Technologie</ion-option>
+          </ion-select>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label class="article-post-label">Contenu</ion-label>
+        <ion-textarea [(ngModel)]="article.content" name="content"></ion-textarea>
       </ion-item>
 
       <ion-item>
-        <ion-label fixed>Catégorie</ion-label>
-        <ion-input [(ngModel)]="article.Tag" name="Tag" type="text"></ion-input>
+        <ion-label class="article-post-label">Email</ion-label>
+        <ion-input [(ngModel)]="article['author_email']" name="author_email" type="text"></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label fixed>Contenu</ion-label>
-        <ion-input [(ngModel)]="article.Content" name="Content" type="text"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label fixed>Email</ion-label>
-        <ion-input [(ngModel)]="article['Author Email']" name="Author Email" type="text"></ion-input>
-      </ion-item>
-
-      <button ion-button type="submit" block>Add Todo</button>
+      <button ion-button type="submit" block>Post Article</button>
     </form>
 
 </ion-content>

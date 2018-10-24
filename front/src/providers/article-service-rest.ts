@@ -49,6 +49,9 @@ export class ArticleService {
     }
 
     create(data) {
-        return this.http.post(showsURL, data).toPromise();
+        console.log('data', data);
+        return this.http.post(showsURL, data)
+            .map(res => res.json())
+            .toPromise();
     }
 }

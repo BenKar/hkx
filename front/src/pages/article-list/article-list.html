@@ -15,7 +15,7 @@
 
         <ion-item-sliding *ngFor="let article of articles">
             <button ion-item (click)="openArticleDetail(article)">
-                <h2>{{article.Title}}</h2>
+                <h2>{{article.title}}</h2>
                 <p>{{ article.createdAt | date: 'd MMMM yyyy' }}</p>
             </button>
             <ion-item-options>
@@ -28,14 +28,3 @@
     <div *ngIf="viewMode==='map'" style="width:100%;height:100%;" id="map"></div>
 
 </ion-content>
-
-<ion-footer padding>
-    <ion-segment [(ngModel)]="viewMode">
-        <ion-segment-button value="list">
-            <ion-icon name="list"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button value="map" (ionSelect)="showMap()">
-            <ion-icon name="map"></ion-icon>
-        </ion-segment-button>
-    </ion-segment>
-</ion-footer>

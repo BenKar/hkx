@@ -6,19 +6,15 @@
 
     <ion-list>
       <ion-list-header>
-        Show Tonight
+        Snoozie
       </ion-list-header>
-      <button menuClose ion-item (click)="openPage(pages.WelcomePage)">
-        <ion-icon item-left name="bookmark"></ion-icon>
-        Welcome
+      <button menuClose ion-item (click)="openPage(pages.ArticleListPage)">
+        <ion-icon item-left name="ios-paper"></ion-icon>
+        Liste des articles
       </button>
-      <button menuClose ion-item (click)="openPage(pages.ShowListPage)">
-        <ion-icon item-left name="bonfire"></ion-icon>
-        Shows
-      </button>
-      <button menuClose ion-item (click)="openPage(pages.FavoriteListPage)">
-        <ion-icon item-left name="star"></ion-icon>
-        Favorites
+      <button menuClose ion-item (click)="openPage(pages.ArticlePostPage)">
+        <ion-icon item-left name="ios-create"></ion-icon>
+        Poster un article
       </button>
     </ion-list>
 

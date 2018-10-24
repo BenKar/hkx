@@ -9,11 +9,11 @@
     "timestamps": true
   },
   "attributes": {
-    "Title": {
+    "title": {
       "default": "",
       "type": "string"
     },
-    "Tag": {
+    "tag": {
       "default": "",
       "type": "enumeration",
       "required": true,
@@ -27,26 +27,21 @@
         "Technologie"
       ]
     },
-    "Content": {
+    "content": {
       "default": "",
       "maxLength": 1000,
       "minLength": 200,
       "type": "text",
       "required": true
     },
-    "Author email": {
+    "author_email": {
       "default": "",
       "type": "email",
       "required": true
     },
-    "Like": {
+    "like": {
       "default": 0,
       "type": "integer",
-      "required": true
-    },
-    "Date de l'article": {
-      "default": "",
-      "type": "date",
       "required": true
     }
   }
