@@ -15,9 +15,7 @@ export class ArticleDetailPage {
     constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public navParams: NavParams, public articleService: ArticleService, public toastCtrl: ToastController) {
         console.log(this.navParams);
         this.article = this.navParams.data;
-     articleService.findById(this.article.id).then(
-         article => this.article = article
-       );
+        articleService.findById(this.article.id).then(article => this.article = article);
     }
 
     favorite(article) {

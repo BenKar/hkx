@@ -25,7 +25,6 @@ export class ArticleListPage {
     }
 
     openArticleDetail(article: any) {
-        console.log(article);
         this.navCtrl.push(ArticleDetailPage, article);
     }
 
