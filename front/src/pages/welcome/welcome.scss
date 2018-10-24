@@ -8,6 +8,13 @@ page-welcome {
 
   font-weight: 300;
 
+  ion-header {
+    background-color: white;
+    button {
+      color: black;
+    }
+  }
+
   ion-slide {
 
 
@@ -38,4 +45,20 @@ page-welcome {
     background: white;
   }
 
+}
+
+ion-header {
+  .toolbar-background-ios {
+    background-color: white;
+  }
+  .toolbar-title-ios {
+    color: black;
+  }
+  .bar-button-default-ios {
+    color: black;
+  }
+}
+
+.welcome-logo {
+  height: 40px;
 }

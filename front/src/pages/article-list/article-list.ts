@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {Config, NavController} from 'ionic-angular';
 import {ArticleService} from '../../providers/article-service-rest';
 import {ArticleDetailPage} from '../article-detail/article-detail';
-import leaflet from 'leaflet';
 import {SERVER_URL} from '../../providers/config';
 
 
@@ -38,7 +37,7 @@ export class ArticleListPage {
         // if the value is an empty string don't filter the items
         if (val && val.trim() != '') {
           this.articles = this.articles.filter((article) => {
-            return (article.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+            return (article.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
           })
         }
     }
@@ -50,36 +49,11 @@ export class ArticleListPage {
     findAll() {
         this.service.findAll()
             .then(data => {
-                this.articles = data;
+                console.log("data", data);
+                this.articles = data.sort((article1, article2) => (new Date(article1.createdAt)).getTime() < (new Date(article2.createdAt)).getTime());
                 this.articlesForSearch = data;
                 console.log(this.articles);
             })
             .catch(error => alert(error));
     }
-
-    articleMap() {
-        setTimeout(() => {
-            this.map = leaflet.map("map").setView([48.85, 2.35], 10);
-            leaflet.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-                attribution: 'Tiles &copy; Esri'
-            }).addTo(this.map);
-            this.articleMarkers();
-        })
-    }
-
-    articleMarkers() {
-        if (this.markersGroup) {
-            this.map.removeLayer(this.markersGroup);
-        }
-        this.markersGroup = leaflet.layerGroup([]);
-        this.articles.forEach(article => {
-            if (article.lat, article.lng) {
-                let marker: any = leaflet.marker([article.lat, article.lng]).on('click', event => this.openArticleDetail(event.target.data));
-                marker.data = article;
-                this.markersGroup.addLayer(marker);
-            }
-        });
-        this.map.addLayer(this.markersGroup);
-    }
-
 }
